@@ -12,7 +12,7 @@ module MicroCms
 
     initializer 'micro_cms.include_view_helpers' do |_app|
       ActiveSupport.on_load :action_view do
-        include MicroCms::CmsBlockHelper
+        ActionView::Base.public_send :include, MicroCms::CmsBlockHelper
       end
     end
   end

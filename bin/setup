@@ -23,3 +23,10 @@ chdir APP_ROOT do
     system!('bundle install --jobs=3 --retry=3')
   end
 end
+
+chdir "#{APP_ROOT}/spec/dummy" do
+  run 'Setup dummy app' do
+    system! 'bin/rails db:prepare'
+    system! 'bin/rails log:clear tmp:clear'
+  end
+end

@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby File.read('.ruby-version')
+ruby '2.5.1'
 
 # Declare your gem's dependencies in micro_cms.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -23,6 +23,4 @@ group :development do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-  gem 'spring'
-  gem 'spring-commands-rspec'
 end
