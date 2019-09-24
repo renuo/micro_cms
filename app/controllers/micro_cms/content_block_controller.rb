@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_dependency 'micro_cms/application_controller'
 
 module MicroCms
@@ -8,6 +10,8 @@ module MicroCms
       respond_to do |format|
         format.js do
           @content_block.update content: content_block_params[:content]
+
+          head :no_content
         end
       end
     end
@@ -23,4 +27,3 @@ module MicroCms
     end
   end
 end
-
