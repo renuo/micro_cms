@@ -8,6 +8,12 @@ RSpec.describe MicroCms::ContentBlock, type: :model do
     it { is_expected.to validate_exclusion_of(:content).in_array([nil]) }
   end
 
+  describe '#self.table_name_prefix' do
+    it 'prefixes db table name' do
+      expect(described_class.table_name_prefix).to eq 'micro_cms_'
+    end
+  end
+
   describe '#self.format_path' do
     subject(:formatted_path) { described_class.format_path(i18n_key) }
 
