@@ -17,6 +17,7 @@ gemspec
 
 # To use a debugger
 gem 'byebug', group: %i[development test]
+gem 'shoulda-matchers', group: :test
 
 group :development do
   gem 'rubocop', '~> 0.74.0'
