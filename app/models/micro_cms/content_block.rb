@@ -3,6 +3,7 @@
 module MicroCms
   class ContentBlock < ApplicationRecord
     validates :path, presence: true
+    validates :content, exclusion: { in: [nil] }
 
     def self.table_name_prefix
       'micro_cms_'
