@@ -11,7 +11,6 @@ ruby '2.5.1'
 gemspec
 
 gem 'byebug', group: %i[development test]
-gem 'shoulda-matchers', group: :test
 gem 'simplecov'
 
 group :development do
@@ -19,4 +18,9 @@ group :development do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'shoulda-matchers'
 end

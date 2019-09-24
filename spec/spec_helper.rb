@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_filter 'lib/micro_cms/version.rb'
+end
 SimpleCov.minimum_coverage 100
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -10,6 +12,7 @@ require File.expand_path('dummy/config/environment.rb', __dir__)
 require 'rspec/rails'
 require 'factory_bot'
 require 'micro_cms'
+require 'capybara/rspec/matchers'
 
 Rails.backtrace_cleaner.remove_silencers!
 ActiveRecord::Migrator.migrations_paths = 'spec/dummy/db/migrate'
@@ -34,6 +37,7 @@ RSpec.configure do |config|
   config.order = :random
   config.include FactoryBot::Syntax::Methods
   config.include MicroCms::Engine.routes.url_helpers
+  config.include Capybara::RSpecMatchers, type: :view
 
   Kernel.srand config.seed
 end
