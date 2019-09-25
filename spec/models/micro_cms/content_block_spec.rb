@@ -21,6 +21,8 @@ RSpec.describe MicroCms::ContentBlock, type: :model do
 
     before { I18n.locale = :en }
 
+    after { I18n.locale = I18n.default_locale }
+
     it 'returns the formatted path' do
       expect(formatted_path).to eq 'my-key-to-success-en'
     end
