@@ -1,7 +1,7 @@
 (function($) {
   CKEDITOR.disableAutoInline = true;
 
-  window.addEventListener('load', function() {
+  var setupMicroCms = function() {
     for (var instance in CKEDITOR.instances) {
       if (!CKEDITOR.instances.hasOwnProperty(instance)) {
         break;
@@ -39,5 +39,11 @@
         })
       });
     }
-  });
+  };
+
+  window.addEventListener('load', setupMicroCms);
+
+  if ('Turbolinks' in window && Turbolinks.supported) {
+    $(document).on('turbolinks:load', setupMicroCms);
+  }
 })(jQuery);
