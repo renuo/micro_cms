@@ -98,7 +98,7 @@ RSpec.describe MicroCms::CmsBlockHelper, type: :helper do
 
       it 'renders the content', :aggregate_failures do
         expect(cms_content).to include content
-        expect(cms_content).to_not include 'contenteditable'
+        expect(cms_content).not_to include 'contenteditable'
       end
     end
 
