@@ -3,6 +3,7 @@
   contenteditable="true"
   id="<%= content_block.path %>"
   data-update-url="<%= MicroCms::Engine.routes.url_helpers.content_block_path(content_block) %>"
+  data-authorization-token="<%= MicroCms.authorization_token %>"
 >
   <%= raw content_block.content %>
 </div>

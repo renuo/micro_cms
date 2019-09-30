@@ -11,10 +11,12 @@
         event.editor.updateElement();
         var element = event.editor.element.$;
         var updateUrl = element.getAttribute('data-update-url');
+        var authorizationToken = element.getAttribute('data-authorization-token');
         window.e = event;
 
         var data = new FormData();
         data.append('micro_cms_content_block[content]', event.editor.getData());
+        data.append('micro_cms_content_block[authorization_token]', authorizationToken);
 
         function blink(className) {
           $(element).addClass(className);
