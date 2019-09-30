@@ -9,5 +9,11 @@ module MicroCms
       generators.fixture_replacement :factory_bot
       generators.factory_bot dir: 'spec/factories'
     end
+
+    initializer 'micro_cms.include_view_helpers' do |_app|
+      ActiveSupport.on_load :action_view do
+        ActionView::Base.public_send :include, MicroCms::CmsBlockHelper
+      end
+    end
   end
 end
