@@ -1,5 +1,5 @@
 # MicroCms
-Short description and motivation.
+Provides editable inline content blocks to modify your content on the fly.
 
 ## Dependencies
 * [`ckeditor`](https://github.com/galetahub/ckeditor) gem.
