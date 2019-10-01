@@ -15,5 +15,11 @@ module MicroCms
         ActionView::Base.public_send :include, MicroCms::CmsBlockHelper
       end
     end
+
+    initializer 'micro_cms.configure_authorization_token' do |_app|
+      MicroCms.configure do |config|
+        config.authorization_token = SecureRandom.urlsafe_base64
+      end
+    end
   end
 end
