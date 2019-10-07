@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    micro_cms (0.1.0)
-      rails (> 5.2.0)
+    micro_cms (0.1.1)
+      rails (> 5.1.0)
 
 GEM
   remote: https://rubygems.org/

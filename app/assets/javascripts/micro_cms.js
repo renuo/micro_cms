@@ -31,6 +31,7 @@
           dataType: 'json',
           contentType: 'multipart/form-data',
           data: data,
+          beforeSend: function() { return true; },
           success: function(e) {
             blink('successful');
           },
