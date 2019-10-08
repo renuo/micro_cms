@@ -1,0 +1,30 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+@keyframes blinkGreen {
+  from {
+    background: #66ff66
+  }
+  to {
+    background: transparent
+  }
+}
+
+@keyframes blinkRed {
+  from {
+    background: #ff6666
+  }
+  to {
+    background: transparent
+  }
+}
+
+.content-block.successful {
+  animation: 1s blinkGreen ease-in;
+}
+
+.content-block.error {
+  animation: 1s blinkRed ease-in;
+}

@@ -1,0 +1,19 @@
+<div
+  class="content-block"
+  contenteditable="true"
+  id="<%= content_block.path %>"
+  data-update-url="<%= MicroCms::Engine.routes.url_helpers.content_block_path(content_block) %>"
+  data-authorization-token="<%= MicroCms.authorization_token %>"
+>
+  <%= raw content_block.content %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  <% if MicroCms.ckeditor_configuration_file.present? %>
+    var config = { customConfig: "<%= asset_path(MicroCms.ckeditor_configuration_file) %>" };
+  <% else %>
+    var config = undefined;
+  <% end %>
+
+  CKEDITOR.inline('<%= content_block.path %>', config);
+</script>
