@@ -86,7 +86,7 @@ end
 ```
 
 Now you can use the helper to inline the needed scripts via `app/views/layouts/application.html.slim`. It's strongly
-recommended to theck first, if the user is allowed to edit (but this is not part of this gem):
+recommended to check first, if the user is allowed to edit (but this is not part of this gem):
 
 ```rb
 - if user_signed_in? # not part of this gem!
