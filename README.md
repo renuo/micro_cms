@@ -54,12 +54,45 @@ bin/rails db:migrate
 ```
 to copy the migrations.
 
-Require the JavaScript (e.g. `//= require micro_cms`) and all styles (e.g. `@import 'micro_cms';'`).
-
 Mount the engine routes in you `config/routes.rb` file:
 ```ruby
 mount MicroCms::Engine => '/micro_cms'
 ```
+
+### Usage with Sprockets
+
+Require the JavaScript (e.g. `//= require micro_cms`) and all styles (e.g. `@import 'micro_cms';'`).
+
+### Usage with Webpacker
+
+Make sure that you import `rails/ujs` like that in your `application.js`:
+
+```js
+import Rails from '@rails/ujs';
+Rails.start();
+...
+window.Rails = Rails;
+```
+
+The last line makes the Rails scope global (since we inline the script, this is needed).
+
+Now you have to include the helper to your ApplicationHelper:
+
+```rb
+module ApplicationHelper
+  include MicroCms::ApplicationHelper
+  ...
+end
+```
+
+Now you can use the helper to inline the needed scripts via `app/views/layouts/application.html.slim`. It's strongly
+recommended to check first, if the user is allowed to edit (but this is not part of this gem):
+
+```rb
+- if user_signed_in? # not part of this gem!
+  = micro_cms_asset_tags
+```
+
 
 ## Configuration
 `app/config/initializers/micro_cms.rb`:
