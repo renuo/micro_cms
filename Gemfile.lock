@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    micro_cms (0.1.3)
+    micro_cms (0.1.4)
       rails (> 6.0)
 
 GEM
