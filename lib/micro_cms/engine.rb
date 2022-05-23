@@ -10,6 +10,7 @@ module MicroCms
     FACTORIES = File.expand_path('../../spec/factories', __dir__).freeze
 
     isolate_namespace MicroCms
+    config.autoload_once_paths << "#{root}/app/helpers"
 
     config.generators do |generators|
       generators.test_framework :rspec
@@ -19,7 +20,7 @@ module MicroCms
 
     initializer 'micro_cms.include_view_helpers' do |_app|
       ActiveSupport.on_load :action_view do
-        ActionView::Base.public_send :include, MicroCms::CmsBlockHelper
+        include MicroCms::CmsBlockHelper
       end
     end
 
