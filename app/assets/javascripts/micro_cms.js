@@ -49,4 +49,8 @@
   if ('Turbolinks' in window && Turbolinks.supported) {
     $(document).on('turbolinks:load', setupMicroCms);
   }
+
+  if ('Turbo' in window) {
+    document.addEventListener('turbo:load', setupMicroCms);
+  }
 })(jQuery);
