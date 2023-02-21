@@ -44,13 +44,11 @@
     }
   };
 
-  window.addEventListener('load', setupMicroCms);
-
   if ('Turbolinks' in window && Turbolinks.supported) {
     $(document).on('turbolinks:load', setupMicroCms);
-  }
-
-  if ('Turbo' in window) {
+  } else if ('Turbo' in window) {
     document.addEventListener('turbo:load', setupMicroCms);
+  } else {
+    window.addEventListener('load', setupMicroCms);
   }
 })(jQuery);
